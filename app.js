@@ -1,9 +1,4 @@
 Vue.createApp({
-    // data() {
-    //     return {
-    //     title: 'Я есть грут',
-    //     }
-    // } --> es5
     data: () => ({
         Html: '<h1>Планы на сегодня</h1>',
         title: 'Мои планы',
