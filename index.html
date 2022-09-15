@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="theme.css"
+    <title>Заметочки</title>
+    <style>
+        [v-cloak] {
+            display:none; }
+    </style>
+</head>
+<body>
+<div class="container pt-5" id="app" v-cloak>
+    <div class="card center" >
+        <div v-html="Html"></div>
+        <div class="form-control ">
+            <input type="text" @keyup.enter="addItem" ref="myInput"> 
+        </div>
+        <ul class="list" v-if="items.length">
+            <li 
+            :class="done" 
+            class="card list-item" 
+            v-for="(item, i) in eventItems"
+            :key="item"
+            >
+                <strong class="text-padding">{{item}}</strong>&nbsp;
+                <button 
+                class="btn btn-1 "
+                @click="status = !status"
+                >Сделал</button>
+                <button 
+                class="btn danger"
+                @click="remove(i)">Удалить</button>
+            </li>
+        </ul>
+        <h3 v-show="items.length === 0">Нет планов</h3>
+    </div>
+</div>
+
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
